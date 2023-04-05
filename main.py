@@ -1,5 +1,5 @@
 import json
-import time,os
+import os
 
 # Define the file paths for the JSON Items files
 food_file = 'menu.json'
@@ -378,6 +378,7 @@ while True:
         user_details = register_user()
         if user_details is None:
             continue
+        os.system('cls')
         print("Welcome back! \t{}".format(user_details['Full Name']))
         input("Press any key to continue??")
         os.system('cls')

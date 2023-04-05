@@ -27,6 +27,13 @@
             "Email": "adnan@gmail",
             "Address": "sopore",
             "Password": "zxcvbnm"
+        },
+        {
+            "Full Name": "umar",
+            "Phone Number": "123456",
+            "Email": "umar@gmail.com",
+            "Address": "srinagar",
+            "Password": "umar@"
         }
     ]
 }

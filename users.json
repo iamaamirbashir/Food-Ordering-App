@@ -1,0 +1,32 @@
+{
+    "users": [
+        {
+            "Full Name": "aamir",
+            "Phone Number": "123",
+            "Email": "aamir@gmail.com",
+            "Address": "sopore",
+            "Password": "asdfg"
+        },
+        {
+            "Full Name": "alina",
+            "Phone Number": "1234567890",
+            "Email": "alina@gamil.com",
+            "Address": "srinagar",
+            "Password": "password123"
+        },
+        {
+            "Full Name": "haris",
+            "Phone Number": "9876543210",
+            "Email": "haris@gmail.com",
+            "Address": "pattan",
+            "Password": "password456"
+        },
+        {
+            "Full Name": "adnan",
+            "Phone Number": "9005515722",
+            "Email": "adnan@gmail",
+            "Address": "sopore",
+            "Password": "zxcvbnm"
+        }
+    ]
+}

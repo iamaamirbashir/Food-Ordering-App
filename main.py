@@ -367,7 +367,7 @@ while True:
             admin_function()
         else:
             print("Invalid username or password")
-            time.sleep(4)
+            input("Press any key to continue??")
     elif choice == 2:
         order = Order()
         user_details = register_user()

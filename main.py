@@ -25,10 +25,12 @@ class Order:
         with open('orders.json') as f:
             self.orders = json.load(f)['orders']
         
+        
+    # Function for order placement
 
     def place_order(self):
         order_items = {}
-        print("Please select the food items to order:")
+        print("\nPlease select the food items to order:")
         for i, item in enumerate(self.menu):
             print(f"{i+1}. {item['Name']} ({item['Price']}/- each)")
         while True:
@@ -62,8 +64,8 @@ class Order:
 
         if not order_items:
             print("No items ordered.")
-            print("Press any key to continue??")
-            input()
+            input("Press any key to continue??")
+            os.system('cls')
             return
 
         items = []
@@ -82,15 +84,10 @@ class Order:
             data = json.load(file)
 
         # Get the maximum OrderID
-        order_id = max(order["OrderID"] for order in data["orders"])
+        order_id = max(int(order["OrderID"]) for order in data["orders"])
         order_id = int(order_id) + 1
         customer_name = name
-        # add_order({
-        #     'OrderID': order_id,
-        #     'CustomerName': customer_name,
-        #     'Items': items,
-        #     'OrderTotal': 
-        # })
+        
         order = {
             "OrderID": order_id,
             "CustomerName": customer_name,
@@ -100,9 +97,11 @@ class Order:
         self.orders.append(order)
         with open('orders.json', 'w') as f:
             json.dump({"orders": self.orders}, f)
+        
+         
         print(f"Order placed successfully! Your order ID is {order_id}.")
-        print("Press any key to continue??")
-        input()
+        input("Press any key to continue??")
+        os.system('cls')
 
 
 
@@ -129,8 +128,8 @@ def view_orders(name):
 
     if not found_customer_orders:
         print("No orders found for customer", name)
-    print("Press any key to continue??")
-    input()
+    input("Press any key to continue??")
+    os.system('cls')
 
 
 
@@ -167,7 +166,8 @@ def admin_function():
             break
         else:
             print("Invalid choice! Try again.")
-
+            input("Press any key to continue??")
+         
 
 
 #user registration function if present the he will get logged in
@@ -179,11 +179,13 @@ def register_user():
     email = input("Enter Email: ")
     global name 
     name = input("Enter Name: ")
+    
     # Check if user already exists
     print("Checking if user is registered")
     for user in Items['users']:
         if user['Email'] == email:
             print("User already registered. \n Logging in...")
+            input("Press any key to continue??")
             return user
 
     # Get user registration details from user input
@@ -212,6 +214,7 @@ def register_user():
         json.dump(Items, f, indent=4)
     
     print("User registered successfully.")
+    input("Press any key to continue??")
     return new_user
 
 # update user
@@ -228,6 +231,7 @@ def update_user_profile(email):
 
     if index == -1:
         print(f"No user found with email '{email}'")
+        input("Press any key to continue??")
         return
 
     # Prompt the user to enter the updated details
@@ -248,7 +252,7 @@ def update_user_profile(email):
         json.dump(data, f, indent=4)
 
     print(f"User with email '{email}' updated successfully")
-    time.sleep(5)
+    input("Press any key to continue??")
         
 
 class Admin:
@@ -284,8 +288,8 @@ class Admin:
             json.dump(self.menu, file, indent=4)
         os.system('cls')
         print("Food item added successfully!")
+        input("Press any key to continue??")
         os.system('cls')
-        time.sleep(5)
 
 
     def edit_food_item(self):
@@ -311,10 +315,11 @@ class Admin:
                 json.dump(self.menu, file, indent=4)
             os.system('cls')
             print("Food item updated successfully!")
-            time.sleep(5)
-            os.system('cls')
         else:
             print("Food item not found!")
+        input("Press any key to continue??")
+        os.system('cls')
+
     def view_food_item(self):
         with open('menu.json') as f:
             data = json.load(f)
@@ -323,6 +328,8 @@ class Admin:
         print("Food ID\t\tName\t\tQuantity\tPrice\tDiscount\tStock")
         for food_item in data['items']:
             print(f"{food_item['FoodID']}\t{food_item['Name']}\t\t{food_item['Quantity']}\t{food_item['Price']}\t{food_item['Discount']}\t{food_item['Stock']} \n")
+        input("Press any key to continue??")
+        os.system('cls')
 
     def remove_food_item(self):
         food_id = input("Enter food item id: ")
@@ -337,13 +344,11 @@ class Admin:
                 json.dump(self.menu, file, indent=4)
             os.system('cls')
             print("Food item removed successfully!")
-            time.sleep(5)
-            os.system('cls')
         else:
             os.system('cls')
             print("Food item not found!")
-            time.sleep(5)
-            os.system('cls')
+        input("Press any key to continue??")
+        os.system('cls')
 
 
 
@@ -374,7 +379,7 @@ while True:
         if user_details is None:
             continue
         print("Welcome back! \t{}".format(user_details['Full Name']))
-        time.sleep(5)
+        input("Press any key to continue??")
         os.system('cls')
         while True:
             os.system('cls')
@@ -397,8 +402,10 @@ while True:
                 break
             else:
                 print("Invalid choice! Try again.")
+                input("Press any key to continue??")
 
     elif choice == 3:
         break
     else:
         print("Invalid choice! Try again.")
+        input("Press any key to continue??")
